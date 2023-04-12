@@ -1,9 +1,9 @@
 const buscapeScraping = require("./buscape");
 const mlScraping = require("./mercadoLivre");
 
-const webScraping = async ({ searchFor, category }) => {
-  const mercadoLivreProducts = await mlScraping({ searchFor, category })
-  const buscapeProducts = await buscapeScraping({ searchFor, category });
+const webScraping = async ({ searchFor, category, website }) => {
+  const mercadoLivreProducts = await mlScraping({ searchFor, category, website })
+  const buscapeProducts = await buscapeScraping({ searchFor, category, website });
 
   const allProducts = [...mercadoLivreProducts, ...buscapeProducts];
 
