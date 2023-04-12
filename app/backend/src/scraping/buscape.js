@@ -3,7 +3,7 @@ const pup = require('puppeteer');
 const url = 'https://www.buscape.com.br/';
 
 const buscapeScraping = async ({ searchFor, category }) => {
-  const browser = await pup.launch({ headless: false });
+  const browser = await pup.launch({ headless: true });
   const page = await browser.newPage();
 
   await page.goto(url);
@@ -37,8 +37,8 @@ const buscapeScraping = async ({ searchFor, category }) => {
       price,
       urlProduct: links[i],
       searchTag: searchFor,
-      category: 'okay',
-      website: 'Mercado Livre'
+      category,
+      website: 'Buscapé'
     });
   };
 
