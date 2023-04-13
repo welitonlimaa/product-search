@@ -10,7 +10,7 @@ const getProducts = async ({ searchFor, category, website }) => {
   let products = await Product.find({
     $and: [
       { category },
-      { searchTag: searchFor },
+      { searchTag: { $regex: searchFor, $options: 'i' } },
       { website }
     ]
   });
