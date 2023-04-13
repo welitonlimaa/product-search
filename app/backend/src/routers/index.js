@@ -4,8 +4,8 @@ const { insertProducts, getProducts } = require('../controllers/productControlle
 
 const router = express.Router();
 
-router.post('/', getProducts);
+router.get('/:website/:category/:searchFor', getProducts);
 
-router.post('/insert', insertProducts);
+router.post('/', insertProducts);
 
 module.exports = router;

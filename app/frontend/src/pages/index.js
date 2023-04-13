@@ -19,8 +19,8 @@ export default function Home() {
   const getProducts = async () => {
     setLoading(true);
     const { searchFor, category, website } = searchData;
-    console.log(searchData);
-    const products = await requestData('/', searchData);
+
+    const products = await requestData(`/${website}/${category}/${searchFor}`);
 
     setProductsData(products);
     setLoading(false);

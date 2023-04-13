@@ -14,9 +14,9 @@ const insertProducts = async (req, res) => {
 
 const getProducts = async (req, res) => {
   try {
-    const { body } = req;
+    const { website, category, searchFor } = req.params;
 
-    const result = await services.getProducts(body);
+    const result = await services.getProducts({ website, category, searchFor });
 
     return res.status(200).json(result);
   } catch (error) {
