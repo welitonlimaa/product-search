@@ -22,7 +22,11 @@ export default function ProductCard({ productData }) {
         >
           {description}
         </p>
-        <p>{price}</p>
+        <p
+          className="my-1"
+        >
+          {urlProduct.includes('mercadolivre') ? `R$ ${price},00` : price}
+        </p>
         <a
           href={urlProduct}
           target="_blank"
