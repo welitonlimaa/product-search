@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: `http://localhost:${process.env.API_PORT || '3001'}`,
+  baseURL: 'https://products-search-service.up.railway.app',
 });
 
 export const requestData = async (endpoint) => {
