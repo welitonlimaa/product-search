@@ -120,7 +120,7 @@ body {
 }
 
 .truck:before {
-  content: "Loanding...";
+  content: "Loading...";
   position: absolute;
   margin-left: -100px;
   font-weight: 900;
