@@ -1,11 +1,10 @@
 const pup = require('puppeteer');
 
-const url = 'https://www.mercadolivre.com.br/';
-
 const mlScraping = async ({ searchFor, category, website }) => {
   const browser = await pup.launch({ headless: true });
   const page = await browser.newPage();
 
+  const url = 'https://www.mercadolivre.com.br/';
   await page.goto(url);
 
   await page.waitForSelector('#cb1-edit');

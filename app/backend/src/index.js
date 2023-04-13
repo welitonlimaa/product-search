@@ -1,5 +1,8 @@
 const express = require('express');
+require('dotenv').config()
 const router = require('./routers');
+
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
@@ -21,4 +24,4 @@ app.use(accessControl);
 app.use('/', router);
 
 
-app.listen(3001)
+app.listen(PORT)

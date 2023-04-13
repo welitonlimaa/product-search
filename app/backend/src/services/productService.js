@@ -1,6 +1,5 @@
 const Product = require('../models/productModel');
 const buscapeScraping = require('../scraping/buscape');
-
 const mlScraping = require('../scraping/mercadoLivre');
 const webScraping = require('../scraping/webScraping');
 
@@ -16,6 +15,7 @@ const getProducts = async ({ searchFor, category, website }) => {
   });
 
   if (products.length !== 0) return products;
+
   const searchData = { searchFor, category, website };
   if (website === 'Mercado Livre') {
     products = await mlScraping(searchData);
