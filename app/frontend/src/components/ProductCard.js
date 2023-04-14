@@ -17,7 +17,7 @@ export default function ProductCard({ productData }) {
           {description}
         </p>
         <p className="my-1">
-          {urlProduct.includes('mercadolivre') ? `${Number(price)}` : price}
+          {urlProduct.includes('mercadolivre') ? `R$ ${parseFloat(price).toFixed(2)}` : price}
         </p>
         <a
           href={urlProduct}
