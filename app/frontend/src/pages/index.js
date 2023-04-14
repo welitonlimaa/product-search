@@ -25,8 +25,6 @@ export default function Home() {
     setLoading(false);
   };
 
-  console.log(productsData);
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Seachbar searchData={searchData} setSearchData={setSearchData} getProducts={getProducts} />

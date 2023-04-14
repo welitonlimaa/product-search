@@ -1,62 +1,42 @@
-const pup = require('puppeteer');
+const axios = require('axios')
+const cheerio = require('cheerio')
+
+const fetchData = async (url) => {
+  const result = await axios.get(url)
+  return result.data
+}
 
 const mlScraping = async ({ searchFor, category, website }) => {
-  const browser = await pup.launch({ headless: true });
-  const page = await browser.newPage();
+  const search = await fetchData(`https://lista.mercadolivre.com.br/${category}-${searchFor}`);
+  const $ = cheerio.load(search)
+  let links = [];
 
-  const url = 'https://www.mercadolivre.com.br/';
-  await page.goto(url);
+  $('.ui-search-result__image > a').each((i, e) => {
+    links.push($(e).attr('href'));
+  });
 
-  await page.waitForSelector('#cb1-edit');
+  const data = await Promise.all(links.slice(0, 6).map(async (link) => {
+    const page = await fetchData(link);
+    const $ = cheerio.load(page);
 
-  await page.type('#cb1-edit', `${category} ${searchFor}`);
+    const title = $('h1').text();
+    const urlImg = $('.ui-pdp-gallery__figure > img').attr('src');
+    const description = $('.ui-pdp-description__content').text();
+    const price = $('.andes-money-amount > meta').attr('content');
 
-  await Promise.all([
-    page.waitForNavigation(),
-    page.click('.nav-search-btn')
-  ]);
-
-  const links = await page.$$eval('.ui-search-result__image > a', elements => elements.map((a) => a.href));
-
-  const data = [];
-
-  for (let i = 0; i < 6; i += 1) {
-    await page.goto(links[i]);
-    await page.waitForSelector('.nav-logo');
-
-    const verify = await page.evaluate(() => {
-      const title = document.querySelector('.ui-pdp-title');
-      const urlImg = document.querySelector('.ui-pdp-gallery__figure');
-      const description = document.querySelector('.ui-pdp-description__content');
-      const price = document.querySelector('.andes-money-amount__fraction');
-      if (!title || !urlImg || !description || !price) return true;
-      return false;
-    });
-
-    if (verify) continue;
-
-    const title = await page.$eval('.ui-pdp-title', element => element.innerText);
-    const urlImg = await page.$eval('.ui-pdp-gallery__figure > img', element => element.src);
-    const description = await page.$eval('.ui-pdp-description__content', element => element.innerText);
-    const price = await page.$eval('.andes-money-amount__fraction', element => element.innerText);
-
-    data.push({
+    return {
       urlImg,
       title,
       description,
       price,
-      urlProduct: links[i],
+      urlProduct: link,
       searchTag: searchFor,
       category,
       website
-    });
-  };
-
-  // await page.waitForTimeout(5000);
-
-  await browser.close();
+    }
+  }));
 
   return data;
-};
+}
 
 module.exports = mlScraping;
