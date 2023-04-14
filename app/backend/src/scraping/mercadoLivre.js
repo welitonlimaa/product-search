@@ -20,14 +20,16 @@ const mlScraping = async ({ searchFor, category, website }) => {
 
   const data = [];
 
-  for (let i = 0; i < 6; i += 1) {
+  for (let i = 0; i < 20; i += 1) {
     await page.goto(links[i]);
     await page.waitForSelector('.nav-logo');
 
     const verify = await page.evaluate(() => {
       const title = document.querySelector('.ui-pdp-title');
+      const urlImg = document.querySelector('.ui-pdp-gallery__figure');
       const description = document.querySelector('.ui-pdp-description__content');
-      if (!title || !description) return true;
+      const price = document.querySelector('.andes-money-amount__fraction');
+      if (!title || !urlImg || !description || !price) return true;
       return false;
     });
 
