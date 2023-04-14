@@ -1,7 +1,7 @@
 const pup = require('puppeteer');
 
 const mlScraping = async ({ searchFor, category, website }) => {
-  const browser = await pup.launch({ headless: false });
+  const browser = await pup.launch({ headless: true });
   const page = await browser.newPage();
 
   const url = 'https://www.mercadolivre.com.br/';
