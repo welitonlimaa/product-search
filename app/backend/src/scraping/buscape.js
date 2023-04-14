@@ -19,7 +19,7 @@ const buscapeScraping = async ({ searchFor, category, website }) => {
 
   const data = [];
 
-  for (let i = 0; i < 20; i += 1) {
+  for (let i = 0; i < 6; i += 1) {
     await page.goto(links[i]);
     await page.waitForSelector('.Text_Text__h_AF6');
 
