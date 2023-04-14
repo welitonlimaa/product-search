@@ -13,7 +13,12 @@ const buscapeScraping = async ({ searchFor, category, website }) => {
 
   $('.Paper_Paper__HIHv0 > a').each((i, e) => {
     const href = $(e).attr('href');
-    const url = 'https://www.buscape.com.br' + href;
+    let url = '';
+    if (href.includes('www.buscape')) {
+      url = href;
+    } else {
+      url = 'https://www.buscape.com.br' + href;
+    }
     links.push(url);
   });
 
