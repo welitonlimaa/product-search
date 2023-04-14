@@ -22,7 +22,7 @@ const mlScraping = async ({ searchFor, category, website }) => {
     const title = $('h1').text();
     const urlImg = $('.ui-pdp-gallery__figure > img').attr('src');
     const description = $('.ui-pdp-description__content').text();
-    const price = $('.andes-money-amount__fraction').text();
+    const price = $('.andes-money-amount > meta').attr('content');
 
     return {
       urlImg,
