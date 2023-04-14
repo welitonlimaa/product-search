@@ -1,7 +1,7 @@
 const pup = require('puppeteer');
 
 const mlScraping = async ({ searchFor, category, website }) => {
-  const browser = await pup.launch({ headless: true });
+  const browser = await pup.launch({ headless: false });
   const page = await browser.newPage();
 
   const url = 'https://www.mercadolivre.com.br/';
@@ -22,7 +22,16 @@ const mlScraping = async ({ searchFor, category, website }) => {
 
   for (let i = 0; i < 6; i += 1) {
     await page.goto(links[i]);
-    await page.waitForSelector('.ui-pdp-title');
+    await page.waitForSelector('.nav-logo');
+
+    const verify = await page.evaluate(() => {
+      const title = document.querySelector('.ui-pdp-title');
+      const description = document.querySelector('.ui-pdp-description__content');
+      if (!title || !description) return true;
+      return false;
+    });
+
+    if (verify) continue;
 
     const title = await page.$eval('.ui-pdp-title', element => element.innerText);
     const urlImg = await page.$eval('.ui-pdp-gallery__figure > img', element => element.src);

@@ -18,19 +18,20 @@ export default function Home() {
 
   const getProducts = async () => {
     setLoading(true);
-    const { searchFor, category, website } = searchData;
 
-    const products = await requestData(`/${website}/${category}/${searchFor}`);
+    const products = await requestData(searchData);
 
     setProductsData(products);
     setLoading(false);
   };
 
+  console.log(productsData);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <Seachbar searchData={searchData} setSearchData={setSearchData} getProducts={getProducts} />
       {
-        isLoading ? <Loading /> : <Products productsData={productsData} />
+        // isLoading ? <Loading /> : <Products productsData={productsData} />
       }
     </main>
   )
