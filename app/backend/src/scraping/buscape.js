@@ -25,7 +25,10 @@ const buscapeScraping = async ({ searchFor, category, website }) => {
 
     const verify = await page.evaluate(() => {
       const title = document.querySelector('h1');
-      if (!title) return true;
+      const urlImg = document.querySelector('.swiper-slide');
+      const description = document.querySelector('.AttributeBlock_GroupContent__nhYRo');
+      const price = document.querySelector('.Price_ValueContainer__1U9ia');
+      if (!title || !urlImg || !description || !price) return true;
       return false;
     });
 
