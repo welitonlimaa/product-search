@@ -1,5 +1,4 @@
 export const requestData = async ({ searchFor, category, website }) => {
-  console.log({ searchFor, category, website });
   const url = `https://products-search-service.up.railway.app/${website}/${category}/${searchFor}`;
   try {
     const response = await fetch(url);

@@ -26,7 +26,7 @@ const buscapeScraping = async ({ searchFor, category, website }) => {
   const data = await Promise.all(links.slice(0, 10).map(async (link) => {
     const page = await fetchData(link);
     const $ = cheerio.load(page);
-    console.log('entrou');
+
     const title = $('h1').text();
     const urlImg = $('.swiper-slide > img').attr('src');
     const description = $('.AttributeBlock_GroupContent__nhYRo > p').text();
@@ -43,8 +43,6 @@ const buscapeScraping = async ({ searchFor, category, website }) => {
       website
     }
   }));
-
-  console.log(data);
 
   return data;
 }
