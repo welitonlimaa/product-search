@@ -27,7 +27,7 @@ export default function Seachbar({ searchData, setSearchData, getProducts }) {
           id="search"
           onChange={(e) => setSearchData({ ...searchData, searchFor: e.target.value })}
           value={searchFor}
-          className="w-80 p-4 pl-10 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..."
+          className="w-80 p-4 pl-10 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscar..."
           required
         />
 
@@ -36,7 +36,7 @@ export default function Seachbar({ searchData, setSearchData, getProducts }) {
           disabled={!(searchFor && category && website)}
           onClick={() => getProducts()}
           className="w-24 -ms-12 text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-sm p-4 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-          Search
+          Buscar
         </button>
       </form>
     </div>
