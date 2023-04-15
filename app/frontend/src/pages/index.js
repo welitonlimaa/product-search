@@ -26,7 +26,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-neutral-50">
       <Seachbar searchData={searchData} setSearchData={setSearchData} getProducts={getProducts} />
       {
         isLoading ? <Loading /> : <Products productsData={productsData} />

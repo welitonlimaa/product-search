@@ -1,9 +1,7 @@
 export default function ProductCard({ productData }) {
   const { urlImg, title, description, price, urlProduct } = productData;
   return (
-    <div
-      className="flex flex-col my-4 items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
-    >
+    <div className="flex flex-col my-4 items-center md:flex-row md:max-w-xl bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
       <img
         src={urlImg}
         alt={title}
