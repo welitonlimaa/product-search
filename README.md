@@ -3,6 +3,8 @@ Este é um projeto de um buscador de produtos que conecta-se com as páginas do 
 sobre produtos nas categorias Celular, Geladeira e TV. A busca pode ser feita tanto no Mercado Livre quanto no Buscapé, e as informações sobre cada 
 produto incluem uma foto, descrição, categoria, preço e website de origem.
 
+![img aplication](https://user-images.githubusercontent.com/108986668/232260863-4918125b-767e-4b5b-854e-15cfb564a6d5.png)
+
 ## Tecnologias Utilizadas
 As principais tecnologias utilizadas neste projeto foram:
 - Node.js
