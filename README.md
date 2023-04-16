@@ -15,8 +15,8 @@ As principais tecnologias utilizadas neste projeto foram:
 
 ## Deploy
 Este projeto foi hospedado no Railway e pode ser acessado pelos seguintes links:
-- Frontend: https://product-search.welitonlimaa.me
-- Backend: https://product-search-api.welitonlimaa.me
+- Frontend: https://products-search.up.railway.app/
+- Backend: https://products-search-service.up.railway.app/
 
 ## Uso
 Para usar o buscador de produtos, siga os seguintes passos:
@@ -56,3 +56,13 @@ npm run start
 ```bash
 npm run start
 ```
+
+## Limitações
+Algumas limitações conhecidas do projeto incluem:
+- As buscas podem ser um pouco lentas, especialmente quando feitas pela primeira vez, devido ao web scraping necessário para obter as informações dos produtos.
+- O web scraping pode ocasionalmente falhar ou retornar resultados incorretos, especialmente se o website-alvo mudar a sua estrutura ou layout.
+
+## Problemas conhecidos
+Alguns problemas conhecidos do projeto incluem:
+- A conexão com o banco de dados pode falhar ou ficar instável em algumas circunstâncias.
+- A exibição dos resultados pode ficar desalinhada
