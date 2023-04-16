@@ -10,6 +10,7 @@ As principais tecnologias utilizadas neste projeto foram:
 - Node.js
 - Express
 - MongoDB
+- MongoDB Atlas
 - Next.js
 - React
 - Axios
