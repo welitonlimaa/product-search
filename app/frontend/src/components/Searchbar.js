@@ -27,7 +27,7 @@ export default function Seachbar({ searchData, setSearchData, getProducts }) {
           id="search"
           onChange={(e) => setSearchData({ ...searchData, searchFor: e.target.value })}
           value={searchFor}
-          className="min-[641px]:w-80 min-[641px]:p-4 min-[641px]:pl-10 max-[640px]:w-full max-[640px]:p-4 max-[640px]:m-1 min-[641px]:rounded-md text-base text-gray-900 border border-gray-300 rounded-min-[641px] bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-640 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscar..."
+          className="min-[641px]:w-80 min-[641px]:p-4 min-[641px]:pl-10 max-[640px]:w-full max-[640px]:p-4 max-[640px]:m-1 rounded-md text-base text-gray-900 border border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-640 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscar..."
           required
         />
 
@@ -35,7 +35,7 @@ export default function Seachbar({ searchData, setSearchData, getProducts }) {
           type="button"
           disabled={!(searchFor && category && website)}
           onClick={() => getProducts()}
-          className="min-[641px]:w-24 min-[641px]:-ms-12 max-[640px]:w-full min-[641px]:rounded-md text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-min-[641px] text-sm p-4 dark:bg-blue-640 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          className="min-[641px]:w-24 min-[641px]:-ms-12 max-[640px]:w-full rounded-md text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-min-[641px] text-sm p-4 dark:bg-blue-640 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
           Buscar
         </button>
       </form>
